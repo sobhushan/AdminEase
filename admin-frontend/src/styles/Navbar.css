@@ -1,0 +1,144 @@
+/* src/styles/Navbar.css */
+.navbar {
+    background: #d7d8d9;
+    padding: 10px;
+    
+  }
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #e3e3e3;
+    padding: 10px 20px;
+    position: absolute;
+    left:0;
+  }
+  
+  .hamburger-btn {
+    position: absolute;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  
+  .navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    flex-grow: 1;
+  }
+  
+  
+  .navb {
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navb:hover {
+    background-color: #e3e3e3;
+    transform: scale(1.1);
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 8px 40px;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #a9a5a5;
+    font-size: 18px;
+  }
+
+  .user-dropdown {
+    margin-left: auto; 
+    position: relative;
+  }
+
+  .userbtn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    right: 0;
+    background: white;
+    border-radius: 5px;
+    padding: 8px 0;
+    list-style: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    right: 0;
+  }
+  
+  .dropdown-menu li {
+    padding: 5px 15px;
+  }
+  
+  .dropdown-menu li:hover {
+    background: #f1f1f1;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  /* @media (max-width: 768px) {
+    .search-container {
+      width: 100%;
+      flex-grow: 1;
+    }
+  
+    .navb {
+      display: none; 
+    }
+  
+    .dropdown {
+      margin-left: auto;
+    }
+  }  */
+  .search-container,
+  .navb {
+    display: none;
+  }
+  
+  /* Only show hamburger and user button on small screens */
+  @media (min-width: 769px) {
+    .search-container,
+    .navb {
+      display: flex;
+    }
+  }
