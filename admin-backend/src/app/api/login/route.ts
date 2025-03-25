@@ -16,6 +16,7 @@ export async function POST(request: NextRequest) {
         message: `Login successful! Welcome, ${user[0].username}`,
         user_id: user[0].id,
         username: user[0].username,
+        role: user[0].role,
       });
     } else {
       return NextResponse.json({ message: "Invalid Credentials" });

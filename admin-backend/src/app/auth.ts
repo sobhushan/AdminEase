@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
-//   password: '**********', // Replace with your MySQL password
+  password: 'somy@B2002', // Replace with your MySQL password
   database: 'adminease',
   waitForConnections: true, // Prevents overload
   connectionLimit: 10, // Limits simultaneous connections

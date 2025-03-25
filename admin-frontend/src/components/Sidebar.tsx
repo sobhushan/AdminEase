@@ -19,7 +19,7 @@ const Sidebar = ({ isOpen, toggleSidebar }: { isOpen: boolean, toggleSidebar: ()
     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <div className="sidebar-header">
         <div className="logo-container">
-          <span className="logo">🌈 Aura & Arbor</span>
+          <span className="logo">Aura & Arbor</span>
           <span className="admin-text">Admin Panel</span>
         </div>
         <button className="toggle-btn" onClick={toggleSidebar}><IoIosArrowBack /></button>

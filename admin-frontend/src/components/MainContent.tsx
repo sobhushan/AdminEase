@@ -4,12 +4,11 @@ import Customers from "../components/users/Customers";
 import CreateDesign from "../components/designs/CreateDesign";
 import Designs from "../pages/Designs"; 
 export interface Design {
-  id: number;
+  design_id: number;
   name: string;
-  desc: string;
+  description: string;
   category: string;
   image: string;
-  votes: number;
 }
 
 

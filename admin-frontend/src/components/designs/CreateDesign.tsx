@@ -1,10 +1,11 @@
 import { useState } from "react";
+import axios from "axios";
 import "./CreateDesign.css";
 
 interface Design {
-  id: number;
+  design_id: number;
   name: string;
-  desc: string;
+  description: string;
   category: string;
   image: string;
   votes: number;
@@ -12,31 +13,60 @@ interface Design {
 
 const CreateDesign = ({ onAddDesign }: { onAddDesign: (design: Design) => void }) => {
   const [name, setName] = useState("");
-  const [desc, setDesc] = useState("");
+  const [description, setDesc] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
   const [error, setError] = useState("");
   const [preview, setPreview] = useState<Design | null>(null);
+  const [saving, setSaving] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handlePreview = () => {
+    if (name || description || category || image) {
+      setPreview({
+        design_id: Date.now(),
+        name,
+        description,
+        category,
+        image,
+        votes: Math.floor(Math.random() * 50),
+      });
+    } else {
+      setPreview(null);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name || !desc || !category || !image) {
+    if (!name || !description || !category || !image) {
       setError("All fields are required.");
       return;
     }
 
-    const newDesign: Design = {
-      id: Date.now(),
-      name,
-      desc,
-      category,
-      image,
-      votes: Math.floor(Math.random() * 50), // Random initial votes
+    const newDesign = {
+        name,
+        description,
+        category,
+        image,
+        votes: Math.floor(Math.random() * 50), // Random initial votes
     };
+    setSaving(true);
+    try {
+        const response = await axios.post("http://localhost:3000/api/designs", newDesign, {
+            headers: { "Content-Type": "application/json" },
+    });
 
-    onAddDesign(newDesign);
-    setPreview(newDesign);
+    alert("New Design Saved!");
+    console.log("Design Saved:", response.data);
+    
+    setPreview(response.data); // Load preview before saving
+    onAddDesign(response.data);
+    } catch (error) {
+       console.error("Error saving design:", error);
+       setError("Failed to save design.");
+    }finally{
+       setSaving(false);
+    }
 
     setName("");
     setDesc("");
@@ -67,7 +97,10 @@ const CreateDesign = ({ onAddDesign }: { onAddDesign: (design: Design) => void }
                     type="text"
                     className="form-control"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => {
+                        setName(e.target.value);
+                        handlePreview();
+                    }}
                     placeholder="Enter design name"
                     required
                   />
@@ -77,8 +110,11 @@ const CreateDesign = ({ onAddDesign }: { onAddDesign: (design: Design) => void }
                   <label>Description</label>
                   <textarea
                     className="form-control"
-                    value={desc}
-                    onChange={(e) => setDesc(e.target.value)}
+                    value={description}
+                    onChange={(e) => {
+                        setDesc(e.target.value);
+                        handlePreview();
+                    }}
                     placeholder="Enter design description"
                     required
                   />
@@ -90,7 +126,10 @@ const CreateDesign = ({ onAddDesign }: { onAddDesign: (design: Design) => void }
                     type="text"
                     className="form-control"
                     value={category}
-                    onChange={(e) => setCategory(e.target.value)}
+                    onChange={(e) => {
+                        setCategory(e.target.value);
+                        handlePreview();
+                      }}
                     placeholder="Enter category (e.g., Modern, Minimalist)"
                     required
                   />
@@ -102,14 +141,17 @@ const CreateDesign = ({ onAddDesign }: { onAddDesign: (design: Design) => void }
                     type="url"
                     className="form-control"
                     value={image}
-                    onChange={(e) => setImage(e.target.value)}
+                    onChange={(e) => {
+                        setImage(e.target.value);
+                        setPreview((prev) => prev ? { ...prev, image: e.target.value } : null);
+                      }}
                     placeholder="Enter image URL"
                     required
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary mt-3">
-                  Save Design
+                <button type="submit" className="btn btn-primary mt-3" disabled={saving}>
+                  {saving ? "Saving..." : "Save Design"}
                 </button>
               </form>
             </div>
@@ -121,7 +163,7 @@ const CreateDesign = ({ onAddDesign }: { onAddDesign: (design: Design) => void }
                   <img src={preview.image} alt={preview.name} className="design-image" />
                   <div className="design-info">
                       <h5>{preview.name}</h5>
-                      <p>{preview.desc}</p>
+                      <p>{preview.description}</p>
                     </div>
 
                     <div className="votes-count">⭐ {preview.votes} Votes</div>
