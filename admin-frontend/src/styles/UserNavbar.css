@@ -1,0 +1,82 @@
+/* src/styles/UserNavbar.css */
+.user-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #ff7f50, #ff6347); /* Orange-Yellow Gradient */
+    color: white;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .hamburger-menu {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    margin-right: 20px;
+  }
+  
+  .company-name {
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+    top:5px;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .username-dropdown {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  .username-dropdown .username {
+    margin-left: 10px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 150px; 
+    z-index: 1000; 
+    display: block;
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .cart-icon-bag {
+    background: transparent;
+    border: none;
+    color: white !important;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  

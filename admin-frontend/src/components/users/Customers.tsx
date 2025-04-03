@@ -5,6 +5,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { MdDoNotDisturb } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
 import { useState, useEffect } from "react";
+import Usertable from "../Usertable";
 import "./Customers.css";
 
 const UsersCustomers = () => {
@@ -93,6 +94,7 @@ const UsersCustomers = () => {
             </div>
           </div>
         </div>
+        <Usertable />
       </div>
     </main>
   );

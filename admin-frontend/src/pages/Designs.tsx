@@ -6,6 +6,7 @@ import { CiSearch } from "react-icons/ci";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { ImEye, ImEyeBlocked } from "react-icons/im";
 import { Modal, Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "../styles/Design.css";
 
 interface Design {
@@ -26,6 +27,7 @@ const Designs = () => {
   // State for editing modal
   const [showEditModal, setShowEditModal] = useState(false);
   const [selectedDesign, setSelectedDesign] = useState<Design | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("http://localhost:3000/api/designs") // Update with your API URL
@@ -50,33 +52,9 @@ const Designs = () => {
       .catch((error) => console.error("Error fetching votes:", error));
   }, []);
 
-  // useEffect(() => {
-  //   const duration = 1000;
-  //   const steps = 30; 
-  //   const intervalTime = duration / steps;
-
-  //   const initialVotes: { [key: number]: number } = {};
-  //   designs.forEach((design) => (initialVotes[design.id] = 0));
-  //   setVotes(initialVotes);
-
-  //   designs.forEach((design) => {
-  //     const increment = design.votes / steps; // Calculate increment per step
-
-  //     let currentVote = 0;
-  //     const interval = setInterval(() => {
-  //       currentVote += increment;
-
-  //       setVotes((prevVotes) => ({
-  //         ...prevVotes,
-  //         [design.id]: Math.min(Math.round(currentVote), design.votes),
-  //       }));
-
-  //       if (currentVote >= design.votes) {
-  //         clearInterval(interval);
-  //       }
-  //     }, intervalTime);
-  //   });
-  // }, []);
+  const handleVoteClick = (designId: number) => {
+    navigate(`/admin/designs/${designId}/votes`);
+  };
 
 
  // Function to open modal with selected design data
@@ -147,7 +125,7 @@ const Designs = () => {
   };
 
   const handleAdd = () => {
-    window.location.href="/designs/create";
+    window.location.href="/admin/designs/create";
   }
 
    // **Filtering Designs Based on Search Query**
@@ -212,7 +190,7 @@ const Designs = () => {
                       <p>{design.description}</p>
                     </div>
 
-                    <div className="votes-count">⭐ {votes[design.design_id] ?? 0} Votes</div>
+                    <div className="btn votes-count" onClick={() => handleVoteClick(design.design_id)}>⭐ {votes[design.design_id] ?? 0} Votes</div>
                   </div>
                 ))}
                 </div>

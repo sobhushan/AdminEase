@@ -79,3 +79,53 @@ body {
         justify-content: center;
     }
   }
+
+  /* Remove blue active border */
+.custom-dropdown:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure dropdown opens below */
+.custom-dropdown {
+  /* position: relative; */
+  z-index: 1050; /* Ensures it's above other elements */
+}
+
+/* Custom down arrow styling */
+.dropdown-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 14px;
+  color: #555;
+}
+
+
+.timer {
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 2px;
+  color: black;
+}
+
+.resend {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: black;
+  margin-top: 8px;
+}
+
+.resend-link {
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.disabled {
+  color: black;
+  font-weight: bold;
+  pointer-events: none;
+}

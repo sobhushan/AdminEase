@@ -1,0 +1,23 @@
+/* Sidebar Styles */
+.sidebar ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar ul li button {
+    text-decoration: none !important; /* Remove underline */
+    border: none;
+    background: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li button:hover {
+    text-decoration: none;
+    color: #f8f9fa;
+  }

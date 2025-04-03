@@ -1,0 +1,84 @@
+
+.otp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    /* font-size: 24px; */
+    margin-bottom: 8px;
+  }
+  
+  p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: min(3vw, 14px) ; 
+    color: #a9a5a5;
+    text-align: center;
+    justify-content: center;
+    white-space: "nowrap";
+    overflow: "hidden";
+    text-overflow: "ellipsis";
+    margin: 4px 0;
+  }
+  
+  .email {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: black;
+  }
+  
+  .otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .otp-inputs input {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    background: none;
+  }
+  
+  .otp-inputs input:focus {
+    border-bottom: 2px solid 
+    /* #007bff; */
+  }
+  
+  .timer {
+    font-weight: bold;
+    margin-top: 16px;
+    color: black;
+  }
+  
+  .resend {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: black;
+    margin-top: 8px;
+  }
+  
+  .resend-link {
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .disabled {
+    color: black;
+    font-weight: bold;
+    pointer-events: none;
+  }
+  

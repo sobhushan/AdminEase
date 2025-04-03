@@ -2,9 +2,9 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import MainContent from "../components/MainContent"; 
 import { useState } from "react";
-import "../styles/Dashboard.css";
+import "../styles/Admin.css";
 
-const Dashboard = () => {
+const Admin = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
@@ -19,7 +19,7 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Admin;
 
 // import Sidebar from "../components/Sidebar";
 // import Navbar from "../components/Navbar";

@@ -1,0 +1,202 @@
+/* Banner Styles */
+.banner-container {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main Content Styles */
+.main-content-up {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: center;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 30px;
+}
+
+.viewing-text {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.designs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Design Cards */
+.design-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.design-card:hover {
+  transform: scale(1.05);
+}
+
+.design-image {
+  width: 100%;
+  height: auto !important;
+  object-fit: cover;
+}
+
+.design-desc {
+  padding: 10px;
+  flex-grow: 1
+}
+
+.design-desc h5 {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.design-desc h6 {
+  font-size: 16px;
+  color: #606060;
+  font-weight: bold;
+}
+
+.design-desc p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+
+
+/* Sidebar Styles */
+.sidebar-wrapper {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background: #343a40;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar-wrapper.open {
+  left: 0;
+}
+
+/* Responsive Design Grid */
+@media (max-width: 1200px) {
+  .designs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .designs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .designs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* No Designs Message */
+.no-designs {
+  text-align: center;
+  color: #6c757d;
+  margin-top: 50px;
+}
+
+.no-designs img {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+/* Card Button Styling */
+.card-button {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  text-align: center;
+  padding: 2px;
+  background-color: #ffffff;
+  position: relative;
+  bottom: 6px;
+}
+
+/* Vote Count and Bookmark Buttons */
+.votecount {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  justify-content: center;
+  color: #6c757d;
+  position:relative;
+  bottom: 6px;
+  left: 2px;
+}
+
+
+.bookmark-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  position:relative;
+  transition: opacity 0.3s ease-in-out;
+  bottom: 6px;
+} 
+
+.design-card-image-container {
+  position: relative;
+}
+
+.cart-icon-container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  opacity: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-icon-container:hover {
+  background-color: #f0f0f0;
+  opacity: 75%;
+}
+
+.cart-icon {
+  font-size: 24px;
+  color: #333;
+}

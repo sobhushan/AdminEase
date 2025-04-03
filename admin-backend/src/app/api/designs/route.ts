@@ -7,15 +7,47 @@ const allowedOrigin = "http://localhost:5173";
 // GET: Fetch all designs
 export async function GET(request: NextRequest) {
   try {
-    const [designs] = await pool.query("SELECT * FROM designs");
-    return NextResponse.json(designs);
+    const { searchParams } = new URL(request.url);
+    const designId = searchParams.get("design_id");
+
+    let query = "SELECT * FROM designs";
+    let values: any[] = [];
+
+    if (designId) {
+      query += " WHERE design_id = ?";
+      values.push(designId);
+    }
+
+    // Destructure query result properly
+    const [rows]: any = await pool.query(query, values);
+
+    if (designId && rows.length === 0) {
+      return NextResponse.json({ error: "Design not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(designId ? rows[0] : rows);
   } catch (error) {
     if (error instanceof Error) {
-        return NextResponse.json({ error: "Database error", details: error.message }, { status: 500 });
+      return NextResponse.json({ error: "Database error", details: error.message }, { status: 500 });
     }
     return NextResponse.json({ error: "Unknown error occurred" }, { status: 500 });
   }
 }
+
+
+// export async function GET(request: NextRequest) {
+//   try {
+//     const [designs] = await pool.query("SELECT * FROM designs");
+//     return NextResponse.json(designs);
+//   } catch (error) {
+//     if (error instanceof Error) {
+//         return NextResponse.json({ error: "Database error", details: error.message }, { status: 500 });
+//     }
+//     return NextResponse.json({ error: "Unknown error occurred" }, { status: 500 });
+//   }
+// }
+
+
 
 // POST: Create a new design
 export async function POST(request: NextRequest) {

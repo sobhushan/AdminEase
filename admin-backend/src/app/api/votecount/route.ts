@@ -1,3 +1,4 @@
+// src/app/api/votecount/route.ts
 import { NextResponse, NextRequest } from "next/server";
 import pool from "@/app/auth";
 

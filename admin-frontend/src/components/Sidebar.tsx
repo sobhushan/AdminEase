@@ -26,7 +26,7 @@ const Sidebar = ({ isOpen, toggleSidebar }: { isOpen: boolean, toggleSidebar: ()
       </div>
       <ul className="menu">
         <li>
-        <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active" : "")}>
+        <NavLink to="/admin" className={({ isActive }) => (isActive ? "active" : "")}>
           <FaRegCircle /> Dashboard
         </NavLink>
         </li>
@@ -36,11 +36,11 @@ const Sidebar = ({ isOpen, toggleSidebar }: { isOpen: boolean, toggleSidebar: ()
         </li>
         {openDropdowns.users && (
           <ul className="submenu">
-            <li><NavLink to="/users/customers" className={({ isActive }) => (isActive ? "active" : "")}>Customers</NavLink></li>
-            <li><NavLink to="/users/service-providers" className={({ isActive }) => (isActive ? "active" : "")}>Service Providers</NavLink></li>
-            <li><NavLink to="/users/vendors" className={({ isActive }) => (isActive ? "active" : "")}>Vendors</NavLink></li>
-            <li><NavLink to="/users/referrals" className={({ isActive }) => (isActive ? "active" : "")}>Referrals</NavLink></li>
-            <li><NavLink to="/users/support" className={({ isActive }) => (isActive ? "active" : "")}>Support</NavLink></li>
+            <li><NavLink to="/admin/users/customers" className={({ isActive }) => (isActive ? "active" : "")}>Customers</NavLink></li>
+            <li><NavLink to="/admin/users/service-providers" className={({ isActive }) => (isActive ? "active" : "")}>Service Providers</NavLink></li>
+            <li><NavLink to="/admin/users/vendors" className={({ isActive }) => (isActive ? "active" : "")}>Vendors</NavLink></li>
+            <li><NavLink to="/admin/users/referrals" className={({ isActive }) => (isActive ? "active" : "")}>Referrals</NavLink></li>
+            <li><NavLink to="/admin/users/support" className={({ isActive }) => (isActive ? "active" : "")}>Support</NavLink></li>
           </ul>
         )}
 
@@ -49,23 +49,23 @@ const Sidebar = ({ isOpen, toggleSidebar }: { isOpen: boolean, toggleSidebar: ()
         </li>
         {openDropdowns.design && (
           <ul className="submenu">
-            <li><NavLink to="/designs/all" className={({ isActive }) => (isActive ? "active" : "")}>All Designs</NavLink></li>
-            <li><NavLink to="/designs/create" className={({ isActive }) => (isActive ? "active" : "")}>Create Designs</NavLink></li>
+            <li><NavLink to="/admin/designs/all" className={({ isActive }) => (isActive ? "active" : "")}>All Designs</NavLink></li>
+            <li><NavLink to="/admin/designs/create" className={({ isActive }) => (isActive ? "active" : "")}>Create Designs</NavLink></li>
           </ul>
         )}
 
         <hr />
-        <li><NavLink to="/administration" className={({ isActive }) => (isActive ? "active" : "")}><FaRegCircle /> Administration</NavLink></li>
-        <li><NavLink to="/settings" className={({ isActive }) => (isActive ? "active" : "")}><FaRegCircle /> Settings</NavLink></li>
+        <li><NavLink to="/admin/administration" className={({ isActive }) => (isActive ? "active" : "")}><FaRegCircle /> Administration</NavLink></li>
+        <li><NavLink to="/admin/settings" className={({ isActive }) => (isActive ? "active" : "")}><FaRegCircle /> Settings</NavLink></li>
         <hr />
         <li className="dropdown" onClick={() => toggleDropdown("support")}>
           <FaRegCircle /> Help & Support
         </li>
         {openDropdowns.support && (
           <ul className="submenu">
-            <li><NavLink to="/support/faqs" className={({ isActive }) => (isActive ? "active" : "")}>FAQs</NavLink></li>
-            <li><NavLink to="/support/legal" className={({ isActive }) => (isActive ? "active" : "")}>Legal</NavLink></li>
-            <li><NavLink to="/support/about" className={({ isActive }) => (isActive ? "active" : "")}>About</NavLink></li>
+            <li><NavLink to="/admin/support/faqs" className={({ isActive }) => (isActive ? "active" : "")}>FAQs</NavLink></li>
+            <li><NavLink to="/admin/support/legal" className={({ isActive }) => (isActive ? "active" : "")}>Legal</NavLink></li>
+            <li><NavLink to="/admin/support/about" className={({ isActive }) => (isActive ? "active" : "")}>About</NavLink></li>
           </ul>
         )}
       </ul>
